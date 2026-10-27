@@ -86,6 +86,34 @@ function initializeClubMap() {
   window.setTimeout(() => map.invalidateSize(), 150);
 }
 
+const galleryVideo = document.querySelector(".gallery-local-video");
+if (galleryVideo) {
+  galleryVideo.muted = true;
+  galleryVideo.defaultMuted = true;
+  galleryVideo.loop = true;
+  galleryVideo.playsInline = true;
+  galleryVideo.setAttribute("playsinline", "");
+  galleryVideo.setAttribute("webkit-playsinline", "");
+
+  const playGalleryVideo = () => {
+    const playback = galleryVideo.play();
+    if (playback && typeof playback.catch === "function") playback.catch(() => {});
+  };
+
+  galleryVideo.addEventListener("canplay", playGalleryVideo);
+  playGalleryVideo();
+
+  if ("IntersectionObserver" in window) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) playGalleryVideo();
+        else galleryVideo.pause();
+      });
+    }, { threshold: 0.15 });
+    videoObserver.observe(galleryVideo);
+  }
+}
+
 if (mapElement && "IntersectionObserver" in window) {
   const mapObserver = new IntersectionObserver((entries, observer) => {
     if (!entries.some((entry) => entry.isIntersecting)) return;
@@ -97,41 +125,3 @@ if (mapElement && "IntersectionObserver" in window) {
   initializeClubMap();
 }
 
-document.querySelectorAll(".video-frame").forEach((frame) => {
-  const video = frame.querySelector("video[data-hls]");
-  const playButton = frame.querySelector(".video-play");
-  const poster = frame.querySelector(".video-poster");
-  const errorMessage = frame.querySelector(".video-error");
-  if (!video || !playButton) return;
-
-  const showPlaybackError = () => {
-    if (errorMessage) errorMessage.textContent = "Видео не загрузилось. Проверьте подключение и нажмите Play ещё раз.";
-  };
-
-  playButton.addEventListener("click", () => {
-    frame.classList.add("is-ready");
-    if (poster) video.poster = poster.src;
-
-    if (video.canPlayType("application/vnd.apple.mpegurl")) {
-      if (!video.src) video.src = video.dataset.hls;
-      video.play().catch(showPlaybackError);
-      return;
-    }
-
-    if (!window.Hls || !window.Hls.isSupported()) {
-      showPlaybackError();
-      return;
-    }
-
-    if (!video.dataset.hlsReady) {
-      video.dataset.hlsReady = "true";
-      const hls = new window.Hls({ capLevelToPlayerSize: true, maxBufferLength: 20 });
-      hls.loadSource(video.dataset.hls);
-      hls.attachMedia(video);
-      hls.on(window.Hls.Events.MANIFEST_PARSED, () => video.play().catch(showPlaybackError));
-      hls.on(window.Hls.Events.ERROR, (_event, data) => {
-        if (data.fatal) showPlaybackError();
-      });
-    }
-  });
-});

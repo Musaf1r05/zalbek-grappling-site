@@ -1572,7 +1572,7 @@ h1 span,
 .gallery-label { z-index: 2; margin: 0; }
 .contact-link { display: grid; grid-template-columns: 24px 1fr auto; justify-content: initial; gap: 13px; }
 .contact-link svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-.contact-link:first-child svg, .contact-link:nth-child(2) svg, .contact-link:nth-child(3) svg { fill: currentColor; stroke: none; }
+.contact-link:first-child svg, .contact-link:nth-child(2) svg { fill: currentColor; stroke: none; }
 
 .contact-link span:nth-child(2) { justify-self: start; }
 .contact-link span:last-child { justify-self: end; }
@@ -1601,6 +1601,10 @@ h1 span,
 
 
 /* Legible, uncropped photo layouts requested for the second design pass. */
+.coach-card { display: flex; min-height: 0; flex-direction: column; overflow: hidden; }
+.coach-card::before, .coach-card::after { display: none; }
+.coach-card > img { position: static; display: block; width: 100%; height: auto; padding: 0; object-fit: contain; object-position: center; filter: saturate(.82); }
+.coach-card-footer { position: static; flex: 0 0 auto; padding: 14px 18px; background: #101010; }
 .hero-visual .visual-frame { display: grid; place-items: center; padding: 36px; background: #fff; }
 .hero-visual .visual-frame::before,
 .hero-visual .visual-frame::after { display: none; }
@@ -1609,8 +1613,8 @@ h1 span,
 .coach-card > img { object-fit: contain; object-position: center; padding: 10px; }
 .group-card-photo,
 .group-card-personal { display: flex; min-height: 0; flex-direction: column; align-items: stretch; gap: 0; padding: 0; }
-.group-photo { position: relative; width: 100%; height: 225px; display: grid; place-items: center; overflow: hidden; background: #080808; }
-.group-photo img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; }
+.group-photo { position: relative; display: grid; width: 100%; min-height: 225px; place-items: center; overflow: hidden; background: #080808; }
+.group-photo img { position: static; display: block; width: 100%; height: auto; max-height: 520px; object-fit: contain; object-position: center; }
 .group-card-copy { width: 100%; max-width: none; min-height: 128px; padding: 19px 48px 20px 20px; }
 .group-card-copy h3 { margin: 0 0 8px; font-size: clamp(24px, 2.4vw, 31px); }
 .group-card-copy p { max-width: none; color: #e2dfdc; font-size: 11px; line-height: 1.65; }
@@ -1639,9 +1643,10 @@ h1 span,
 @media (max-width: 740px) {
   .hero-visual .visual-frame { min-height: min(390px, 100vw); padding: 25px; }
   .hero-logo { width: min(100%, 275px); max-height: 310px; }
-  .coach-card { min-height: 370px; }
+  .coach-card { min-height: 0; }
   .coach-card > img { padding: 8px; }
-  .group-photo, .group-card-personal .group-photo { height: 240px; }
+  .group-photo { min-height: 240px; }
+  .group-card-personal .group-photo { height: 225px; }
   .group-card-copy { min-height: 122px; }
   .schedule-heading { align-items: flex-start; gap: 28px; }
   .schedule-heading .address-card { width: 100%; }
@@ -1693,6 +1698,158 @@ h1 span,
 .video-frame.is-ready .gallery-video { display: block; }
 .video-error { position: absolute; z-index: 4; right: 10px; bottom: 10px; left: 10px; color: #fff; font-size: 10px; text-align: center; text-shadow: 0 1px 5px #000; }
 
+/* Keep the newly supplied group photos at their full native proportions. */
+.coach-card { display: flex; min-height: 0; flex-direction: column; overflow: hidden; }
+.coach-card::before, .coach-card::after { display: none; }
+.coach-card > img { position: static; display: block; width: 100%; height: auto; padding: 0; object-fit: contain; object-position: center; filter: saturate(.82); }
+.coach-card-footer { position: static; flex: 0 0 auto; padding: 14px 18px; background: #101010; }
+.group-photo { height: auto; min-height: 225px; }
+.group-photo img { position: static; display: block; width: 100%; height: auto; max-height: 520px; object-fit: contain; object-position: center; }
+@media (max-width: 740px) {
+  .coach-card { min-height: 0; }
+  .coach-card > img { padding: 0; }
+  .group-photo { min-height: 240px; }
+  .group-card-personal .group-photo { height: 225px; }
+}
+
+/* Uniform 4:3 image windows across all cards in the groups section. */
+.group-photo,
+.group-card-personal .group-photo { width: 100%; height: auto; min-height: 0; aspect-ratio: 4 / 3; }
+.group-photo img,
+.group-card-personal .group-photo img { width: 100%; height: 100%; max-height: none; object-fit: cover; }
+.group-card-adults .group-photo img { object-position: center 48%; }
+.group-card-kids .group-photo img { object-position: center top; }
+.group-card-personal .group-photo img { object-position: center 42%; }
+@media (max-width: 740px) {
+  .group-photo,
+  .group-card-personal .group-photo { height: auto; min-height: 0; aspect-ratio: 4 / 3; }
+}
+
+/* Gallery: two photos left, looping muted video in the center, two photos right. */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-areas:
+    "lt video rt"
+    "lb video rb";
+  align-items: stretch;
+  gap: 12px;
+}
+.gallery-tile {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  overflow: hidden;
+  background: #101010;
+}
+.gallery-tile.gallery-wide { grid-column: auto; }
+.gallery-tile-lt { grid-area: lt; }
+.gallery-tile-lb { grid-area: lb; }
+.gallery-tile-rt { grid-area: rt; }
+.gallery-tile-rb { grid-area: rb; }
+.gallery-tile-video { grid-area: video; }
+.gallery-photo {
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #070707;
+}
+.gallery-tile.gallery-wide .gallery-photo { aspect-ratio: 4 / 3; }
+.gallery-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: none;
+  filter: saturate(.72);
+}
+.gallery-tile-lt .gallery-photo img { object-position: center 62%; }
+.gallery-tile-lb .gallery-photo img { object-position: center 46%; }
+.gallery-tile-rt .gallery-photo img { object-position: center 58%; }
+.gallery-tile-rb .gallery-photo img { object-position: center 38%; }
+.gallery-label {
+  position: static;
+  z-index: 2;
+  display: flex;
+  min-height: 56px;
+  flex: 0 0 auto;
+  align-items: center;
+  padding: 10px 14px;
+  background: #101010;
+  color: #f5f3f1;
+  font-size: 9px;
+  letter-spacing: .08em;
+  line-height: 1.5;
+}
+.gallery-tile-video {
+  position: relative;
+}
+.gallery-video-frame {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  overflow: hidden;
+  padding: 0;
+  background: #101010;
+}
+.gallery-local-video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  background: #101010;
+}
+.gallery-tile-video .gallery-label {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(180deg, transparent, rgba(10, 10, 10, .88));
+}
+@media (max-width: 860px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "lt"
+      "lb"
+      "video"
+      "rt"
+      "rb";
+    gap: 12px;
+  }
+  .gallery-photo,
+  .gallery-tile.gallery-wide .gallery-photo {
+    aspect-ratio: auto;
+    height: auto;
+  }
+  .gallery-photo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    transform: none;
+  }
+  .gallery-video-frame {
+    flex: 0 0 auto;
+    aspect-ratio: 590 / 1080;
+    max-height: none;
+  }
+  .gallery-local-video {
+    object-fit: cover;
+  }
+  .gallery-label { min-height: 46px; padding: 9px 12px; font-size: 9px; }
+  .gallery-label b { display: inline; }
+}
+
 /* Compact, full-bleed map directly above the footer. */
 .location-map-section { padding: 0; }
 .location-map-section > .container,
@@ -1717,5 +1874,4 @@ h1 span,
   .location-map-heading { padding: 20px 18px; }
   .map-frame { height: 220px; }
 }
-
 
