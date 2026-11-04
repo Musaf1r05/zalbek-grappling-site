@@ -1,4 +1,18 @@
-﻿:root {
+﻿/* ==========================================================================
+   Academy of Grappling — style.css
+   --------------------------------------------------------------------------
+   1. Design tokens
+   2. Base components (header, hero, coach, groups, schedule, prices,
+      gallery, contacts, footer)
+   3. Responsive breakpoints
+   4. Content-specific layout passes
+   5. Gallery layout
+   6. Map & contact details
+   7. Visual refinements & overrides
+   8. Promo sticker
+   ========================================================================== */
+
+:root {
   --color-bg: #0a0a0a;
   --color-surface: #121111;
   --color-surface-raised: #191717;
@@ -104,6 +118,7 @@ button {
   transform: translateY(0);
 }
 
+/* --- Header --- */
 .site-header {
   position: sticky;
   z-index: 30;
@@ -122,12 +137,11 @@ button {
 .button,
 .hero-bottom,
 .intro-strip-inner,
-.coach-card-footer,
 .group-card,
 .price-link,
 .contact-link,
 .footer-inner,
-.footer-bottom {
+.footer-bottom{
   display: flex;
   align-items: center;
 }
@@ -222,6 +236,7 @@ button {
   overflow: hidden;
 }
 
+/* --- Hero --- */
 .hero {
   min-height: min(760px, calc(100svh - var(--header-height)));
   border-bottom: 1px solid var(--color-border);
@@ -404,99 +419,6 @@ h1 span,
   box-shadow: 0 0 0 30px rgba(139, 17, 22, 0.08), 0 0 0 60px rgba(139, 17, 22, 0.05);
 }
 
-.visual-grain {
-  position: absolute;
-  inset: 0;
-  opacity: 0.22;
-  background-image: repeating-linear-gradient(112deg, transparent 0 15px, rgba(255, 255, 255, 0.025) 16px, transparent 17px 31px);
-}
-
-.visual-orbit {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 72%;
-  aspect-ratio: 1;
-  transform: translate(-50%, -53%);
-  border: 1px solid rgba(245, 243, 241, 0.17);
-  border-radius: 50%;
-}
-
-.orbit-one {
-  width: 72%;
-}
-
-.orbit-two {
-  width: 52%;
-  border-color: rgba(180, 30, 37, 0.62);
-}
-
-.visual-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: grid;
-  width: 160px;
-  aspect-ratio: 1;
-  place-items: center;
-  transform: translate(-50%, -53%);
-  border: 1px solid rgba(245, 243, 241, 0.21);
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(139, 17, 22, 0.28), rgba(10, 10, 10, 0.18) 68%);
-  color: rgba(245, 243, 241, 0.84);
-  font-family: var(--font-display);
-  font-size: 60px;
-  font-weight: 700;
-  letter-spacing: -0.1em;
-}
-
-.visual-center span {
-  transform: translateX(-4px);
-}
-
-.visual-index,
-.visual-side-label,
-.visual-bottom-label {
-  position: absolute;
-  z-index: 2;
-  color: var(--color-text-soft);
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-}
-
-.visual-index {
-  top: 37px;
-  left: 37px;
-}
-
-.visual-side-label {
-  top: 50%;
-  right: 34px;
-  writing-mode: vertical-rl;
-}
-
-.visual-bottom-label {
-  bottom: 37px;
-  left: 37px;
-  color: var(--color-muted);
-}
-
-.visual-stamp {
-  position: absolute;
-  z-index: 3;
-  right: 0;
-  bottom: 0;
-  display: grid;
-  gap: 4px;
-  padding: 14px 18px;
-  background: var(--color-accent);
-  color: var(--color-text);
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-}
-
 .hero-bottom {
   position: absolute;
   right: 0;
@@ -542,6 +464,7 @@ h1 span,
   padding-block: clamp(82px, 10vw, 142px);
 }
 
+/* --- Coach --- */
 .section-coach {
   background: linear-gradient(180deg, var(--color-bg), #0d0c0c 100%);
 }
@@ -551,8 +474,7 @@ h1 span,
 }
 
 .section-heading h2,
-.schedule-intro h2,
-.contact-copy h2 {
+.contact-copy h2{
   margin: 0;
   font-size: clamp(58px, 8vw, 96px);
 }
@@ -604,34 +526,6 @@ h1 span,
 .coach-card::after {
   width: 50%;
   border-color: rgba(180, 30, 37, 0.38);
-}
-
-.coach-monogram {
-  position: relative;
-  z-index: 1;
-  color: rgba(245, 243, 241, 0.72);
-  font-family: var(--font-display);
-  font-size: clamp(100px, 16vw, 190px);
-  font-weight: 700;
-  letter-spacing: -0.1em;
-  line-height: 0.8;
-  transform: translateX(-8px);
-}
-
-.coach-monogram span {
-  color: var(--color-accent-bright);
-}
-
-.coach-card-footer {
-  position: absolute;
-  right: 22px;
-  bottom: 20px;
-  left: 22px;
-  justify-content: space-between;
-  color: var(--color-muted);
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
 }
 
 .coach-content {
@@ -734,6 +628,7 @@ h1 span,
   letter-spacing: 0.13em;
 }
 
+/* --- Groups --- */
 .section-groups {
   border-block: 1px solid var(--color-border);
   background: #101010;
@@ -770,63 +665,6 @@ h1 span,
   color: var(--color-muted);
   font-size: 8px;
   letter-spacing: 0.13em;
-}
-
-.group-symbol {
-  position: absolute;
-  top: 45px;
-  right: 22px;
-  width: 78px;
-  aspect-ratio: 1;
-  border: 1px solid rgba(180, 30, 37, 0.36);
-  border-radius: 50%;
-}
-
-.group-symbol::before,
-.group-symbol::after,
-.group-symbol span {
-  position: absolute;
-  content: "";
-}
-
-.group-symbol::before {
-  inset: 12px;
-  border: 1px solid rgba(245, 243, 241, 0.18);
-  border-radius: 50%;
-}
-
-.group-symbol::after {
-  top: -1px;
-  left: 50%;
-  width: 1px;
-  height: calc(100% + 2px);
-  background: rgba(245, 243, 241, 0.14);
-}
-
-.group-symbol span {
-  top: 50%;
-  left: -1px;
-  width: calc(100% + 2px);
-  height: 1px;
-  background: rgba(245, 243, 241, 0.14);
-}
-
-.symbol-teen {
-  transform: rotate(28deg) scale(0.85);
-  border-radius: 10px;
-}
-
-.symbol-teen::before {
-  border-radius: 4px;
-}
-
-.symbol-kids {
-  transform: rotate(45deg) scale(0.7);
-  border-radius: 4px;
-}
-
-.symbol-kids::before {
-  border-radius: 3px;
 }
 
 .group-card > div:not(.group-symbol) {
@@ -871,13 +709,7 @@ h1 span,
   background: var(--color-accent);
 }
 
-.todo-line {
-  margin: 16px 0 0;
-  color: var(--color-muted);
-  font-size: 9px;
-  line-height: 1.5;
-}
-
+/* --- Quote band --- */
 .quote-band {
   overflow: hidden;
   border-bottom: 1px solid var(--color-border);
@@ -892,17 +724,6 @@ h1 span,
   min-height: 300px;
   place-content: center;
   text-align: center;
-}
-
-.quote-mark {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  color: rgba(180, 30, 37, 0.42);
-  font-family: Georgia, serif;
-  font-size: 120px;
-  line-height: 1;
-  transform: translateX(-50%);
 }
 
 .quote-band p {
@@ -928,25 +749,9 @@ h1 span,
   letter-spacing: 0.18em;
 }
 
+/* --- Schedule --- */
 .section-schedule {
   background: #0d0c0c;
-}
-
-.schedule-layout {
-  display: grid;
-  grid-template-columns: 0.78fr 1.22fr;
-  gap: clamp(50px, 8vw, 110px);
-}
-
-.schedule-intro h2 {
-  margin-bottom: 24px;
-}
-
-.schedule-intro > p:not(.eyebrow) {
-  max-width: 300px;
-  color: var(--color-text-soft);
-  font-size: 12px;
-  line-height: 1.8;
 }
 
 .address-card {
@@ -995,40 +800,7 @@ h1 span,
   color: var(--color-text);
 }
 
-.schedule-table-wrap {
-  padding-top: 8px;
-}
-
-.schedule-table-header,
-.schedule-row {
-  display: grid;
-  grid-template-columns: 1.25fr 0.75fr 0.9fr;
-  align-items: center;
-  column-gap: 14px;
-}
-
-.schedule-table-header {
-  min-height: 40px;
-  border-bottom: 1px solid var(--color-border-strong);
-  color: var(--color-muted);
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-}
-
-.schedule-row {
-  min-height: 60px;
-  border-bottom: 1px solid var(--color-border);
-  color: var(--color-text-soft);
-  font-size: 10px;
-}
-
-.schedule-row strong {
-  color: var(--color-text);
-  font-size: 11px;
-  font-weight: 600;
-}
-
+/* --- Prices --- */
 .section-prices {
   border-block: 1px solid var(--color-border);
   background: #101010;
@@ -1114,6 +886,7 @@ h1 span,
   color: var(--color-accent-bright);
 }
 
+/* --- Gallery --- */
 .section-gallery {
   background: #0d0c0c;
 }
@@ -1131,55 +904,6 @@ h1 span,
   border: 1px solid var(--color-border);
   background: #141111;
 }
-
-.gallery-tile.gallery-wide {
-  grid-column: span 2;
-}
-
-.gallery-art {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  background:
-    linear-gradient(135deg, transparent 48%, rgba(180, 30, 37, 0.32) 49% 50%, transparent 51%),
-    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 26px),
-    linear-gradient(140deg, #211819, #101010 65%, #291113);
-  transition: transform 400ms var(--ease-out), filter 400ms ease;
-}
-
-.gallery-tile:hover .gallery-art {
-  transform: scale(1.04);
-  filter: brightness(1.18);
-}
-
-.gallery-art::before,
-.gallery-art::after {
-  position: absolute;
-  content: "";
-}
-
-.gallery-art::before {
-  top: 50%;
-  left: 52%;
-  width: 46%;
-  aspect-ratio: 1;
-  transform: translate(-50%, -50%) rotate(-19deg);
-  border: 1px solid rgba(245, 243, 241, 0.2);
-  border-radius: 50%;
-  box-shadow: 0 0 0 22px rgba(139, 17, 22, 0.09), 0 0 0 55px rgba(245, 243, 241, 0.035);
-}
-
-.gallery-art::after {
-  inset: 15% 22%;
-  transform: skewY(-18deg);
-  border-inline: 1px solid rgba(245, 243, 241, 0.11);
-}
-
-.art-two { filter: hue-rotate(20deg) brightness(0.8); background-position: 15px 0; }
-.art-three { filter: grayscale(0.8) brightness(0.82); background-position: 40px 15px; }
-.art-four { filter: hue-rotate(-12deg) brightness(0.9); background-position: 70px 20px; }
-.art-five { filter: grayscale(0.35) brightness(0.7); background-position: 80px 45px; }
-.art-six { filter: hue-rotate(8deg) brightness(0.96); background-position: 20px 60px; }
 
 .gallery-label {
   position: absolute;
@@ -1204,6 +928,7 @@ h1 span,
   color: var(--color-accent-bright);
 }
 
+/* --- Contacts --- */
 .contact-section {
   padding-block: 20px 100px;
   background: #0d0c0c;
@@ -1231,13 +956,6 @@ h1 span,
   color: var(--color-text-soft);
   font-size: 12px;
   line-height: 1.8;
-}
-
-.contact-placeholder-note {
-  display: block;
-  margin-top: 18px;
-  color: var(--color-muted);
-  font-size: 9px;
 }
 
 .contact-links {
@@ -1269,6 +987,7 @@ h1 span,
   opacity: 0.42;
 }
 
+/* --- Footer --- */
 .site-footer {
   border-top: 1px solid var(--color-border);
   background: #090909;
@@ -1322,28 +1041,6 @@ h1 span,
   text-align: right;
 }
 
-.toast {
-  position: fixed;
-  z-index: 50;
-  right: 20px;
-  bottom: 20px;
-  max-width: min(360px, calc(100% - 40px));
-  padding: 13px 16px;
-  transform: translateY(18px);
-  border: 1px solid var(--color-border-strong);
-  background: #171414;
-  color: var(--color-text);
-  font-size: 11px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 180ms ease, transform 180ms ease;
-}
-
-.toast.is-visible {
-  transform: translateY(0);
-  opacity: 1;
-}
-
 .js .reveal {
   transform: translateY(18px);
   opacity: 0;
@@ -1354,6 +1051,10 @@ h1 span,
   transform: translateY(0);
   opacity: 1;
 }
+
+/* ==========================================================================
+   Responsive breakpoints
+   ========================================================================== */
 
 @media (min-width: 1440px) {
   :root { --container: 1240px; }
@@ -1366,9 +1067,9 @@ h1 span,
   .brand { min-width: auto; }
   .hero-grid { min-height: 600px; grid-template-columns: 1fr 0.75fr; gap: 32px; }
   .visual-frame { min-height: 400px; }
-  .visual-center { width: 130px; font-size: 50px; }
+
   .coach-card { min-height: 390px; }
-  .schedule-layout { gap: 50px; }
+
   .contact-panel { gap: 40px; }
 }
 
@@ -1430,36 +1131,31 @@ h1 span,
   .section { padding-block: 82px; }
   .section-heading { margin-bottom: 36px; }
   .section-heading h2,
-  .schedule-intro h2,
-  .contact-copy h2 { font-size: clamp(58px, 14vw, 82px); }
+.contact-copy h2{ font-size: clamp(58px, 14vw, 82px); }
   .section-heading-split { align-items: flex-start; flex-direction: column; gap: 18px; }
   .section-aside { max-width: 450px; margin: 0; }
   .coach-grid { grid-template-columns: 1fr; gap: 34px; }
   .coach-card { min-height: 370px; }
-  .coach-monogram { font-size: 150px; }
+
   .coach-content h3 { font-size: 68px; }
   .achievement-row { grid-template-columns: 1fr; margin-top: 40px; }
   .achievement-card { min-height: 88px; padding: 16px 10px; }
   .achievement-card + .achievement-card { border-top: 1px solid var(--color-border); border-left: 0; }
   .group-grid { grid-template-columns: 1fr; gap: 10px; }
   .group-card { min-height: 185px; }
-  .group-symbol { top: 38px; right: 27px; }
+
   .quote-band-inner { min-height: 250px; }
   .quote-band p { font-size: clamp(35px, 8.5vw, 52px); }
-  .schedule-layout { grid-template-columns: 1fr; gap: 40px; }
+
   .address-card { margin-top: 28px; }
-  .schedule-table-header,
-  .schedule-row { grid-template-columns: 1fr 0.78fr 0.8fr; column-gap: 8px; }
-  .schedule-table-header { font-size: 7px; }
-  .schedule-row { font-size: 8px; }
-  .schedule-row strong { font-size: 9px; }
+
   .price-grid { grid-template-columns: 1fr; gap: 10px; }
   .price-card { min-height: 270px; padding: 22px; }
   .price-card h3 { margin: 33px 0 18px; font-size: 48px; }
   .price-badge { top: 18px; right: 17px; }
   .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
   .gallery-tile { min-height: 175px; }
-  .gallery-tile.gallery-wide { grid-column: span 2; }
+
   .gallery-label { right: 7px; bottom: 7px; left: 7px; min-height: 34px; gap: 7px; padding-inline: 8px; font-size: 6px; letter-spacing: 0.07em; }
   .contact-section { padding-block: 6px 70px; }
   .contact-panel { grid-template-columns: 1fr; gap: 30px; padding: 28px 22px; }
@@ -1477,14 +1173,7 @@ h1 span,
   .hero-actions { align-items: stretch; flex-direction: column; }
   .button { justify-content: space-between; }
   .visual-frame { min-height: 310px; }
-  .visual-center { width: 104px; font-size: 42px; }
-  .visual-index,
-  .visual-bottom-label { left: 27px; }
-  .visual-side-label { right: 27px; }
-  .schedule-table-header,
-  .schedule-row { grid-template-columns: 0.95fr 0.8fr 0.82fr; column-gap: 5px; }
-  .schedule-row strong { font-size: 8px; }
-  .schedule-row { font-size: 7px; }
+
   .gallery-grid { gap: 7px; }
   .gallery-tile { min-height: 148px; }
   .gallery-label { font-size: 5.5px; }
@@ -1503,24 +1192,19 @@ h1 span,
   .js .reveal { transform: none; opacity: 1; }
 }
 
-
-/* Content-specific styles for the real coach, team photos, schedule, and location map. */
+/* ==========================================================================
+   Content-specific layout passes
+   ========================================================================== */
 .brand-mark { overflow: hidden; padding: 3px; background: #fff; }
 .brand-mark img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
 .visual-frame { isolation: isolate; background: #111; }
 .visual-frame::after { z-index: 2; pointer-events: none; }
-.visual-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; filter: saturate(.78); }
-.visual-shade { position: absolute; z-index: 1; inset: 0; background: linear-gradient(180deg, rgba(8,8,8,.08) 32%, rgba(8,8,8,.78) 100%), linear-gradient(90deg, rgba(8,8,8,.2), transparent 60%); }
-.visual-index, .visual-side-label, .visual-bottom-label { z-index: 3; }
-.visual-index { color: #fff; }
-.visual-side-label { color: #fff; }
-.visual-bottom-label { color: #fff; }
+
 .coach-card { display: block; margin: 0; }
 .coach-card::before { z-index: 1; pointer-events: none; }
 .coach-card::after { z-index: 1; pointer-events: none; }
 .coach-card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; filter: saturate(.75); }
-.coach-card-footer { z-index: 2; gap: 14px; color: #fff; text-shadow: 0 1px 8px #000; }
-.coach-card-footer span:last-child { text-align: right; }
+
 .coach-small-note { max-width: 470px; }
 .achievement-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .achievement-card { min-height: 116px; padding-inline: 18px; }
@@ -1530,17 +1214,17 @@ h1 span,
 .group-card-photo { min-height: 310px; align-items: flex-end; }
 .group-card-photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 36%; filter: saturate(.72); transition: transform 450ms var(--ease-out); }
 .group-card-photo:hover > img { transform: scale(1.04); }
-.group-card-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.12) 10%, rgba(0,0,0,.82) 100%); }
+
 .group-card-copy { position: relative; z-index: 1; max-width: calc(100% - 34px); }
 .group-card-copy h3 { margin-bottom: 9px; }
 .group-card-copy p { max-width: 275px; }
 .group-card-photo > a { z-index: 2; }
 .group-card-personal { min-height: 310px; align-items: flex-end; background: radial-gradient(circle at 72% 30%, rgba(139,17,22,.24), transparent 38%), linear-gradient(145deg,#201819,#100f0f 68%); }
-.personal-card-mark { position: absolute; top: 27px; right: 25px; display: grid; width: 112px; aspect-ratio: 1; place-items: center; border: 1px solid rgba(245,243,241,.2); border-radius: 50%; color: rgba(245,243,241,.82); font: 600 42px var(--font-display); letter-spacing: -.08em; }
+
 .first-session { display: grid; grid-template-columns: 190px 1fr; gap: 22px; margin-top: 18px; padding: 20px 22px; border: 1px solid var(--color-border); background: rgba(255,255,255,.02); }
 .first-session-label { color: var(--color-accent-bright); font-size: 9px; font-weight: 800; letter-spacing: .16em; }
 .first-session p { margin: 0; color: var(--color-text-soft); font-size: 11px; line-height: 1.7; }
-.quote-mark { display: none; }
+
 .section-heading-split { align-items: end; }
 .section-heading-split .address-card { max-width: 490px; margin: 0 0 4px; }
 .address-icon { width: 48px; height: 48px; overflow: hidden; flex: 0 0 48px; border-color: var(--color-border); background: #fff; }
@@ -1592,19 +1276,15 @@ h1 span,
 @media (max-width: 390px) {
   .schedule-card p { max-width: 190px; font-size: 9px; }
   .schedule-card > .text-link { font-size: 9px; }
-  .coach-card-footer { right: 14px; left: 14px; font-size: 7px; }
+
   .contact-link { gap: 8px; font-size: 10px; }
 }
 
-.group-card > .group-card-shade { position: absolute; z-index: 0; inset: 0; }
-.group-card-personal > .personal-card-mark { position: absolute; z-index: 0; }
-
-
-/* Legible, uncropped photo layouts requested for the second design pass. */
+/* --- Photo layout pass: legible, uncropped images --- */
 .coach-card { display: flex; min-height: 0; flex-direction: column; overflow: hidden; }
 .coach-card::before, .coach-card::after { display: none; }
 .coach-card > img { position: static; display: block; width: 100%; height: auto; padding: 0; object-fit: contain; object-position: center; filter: saturate(.82); }
-.coach-card-footer { position: static; flex: 0 0 auto; padding: 14px 18px; background: #101010; }
+
 .hero-visual .visual-frame { display: grid; place-items: center; padding: 36px; background: #fff; }
 .hero-visual .visual-frame::before,
 .hero-visual .visual-frame::after { display: none; }
@@ -1636,7 +1316,7 @@ h1 span,
 .price-card-featured h3 { margin-bottom: 22px; }
 .gallery-tile { display: flex; min-height: 0; flex-direction: column; overflow: hidden; background: #101010; }
 .gallery-photo { display: grid; width: 100%; aspect-ratio: 1.25; place-items: center; overflow: hidden; background: #070707; }
-.gallery-tile.gallery-wide .gallery-photo { aspect-ratio: 1.8; }
+
 .gallery-photo img { position: static; display: block; width: 100%; height: 100%; object-fit: contain; filter: saturate(.72); }
 .gallery-label { position: static; min-height: 47px; flex: 1 0 auto; background: #101010; color: #f5f3f1; font-size: 9px; letter-spacing: .08em; }
 .gallery-label b { color: var(--color-accent-bright); }
@@ -1651,7 +1331,7 @@ h1 span,
   .schedule-heading { align-items: flex-start; gap: 28px; }
   .schedule-heading .address-card { width: 100%; }
   .price-options strong { font-size: 21px; }
-  .gallery-photo, .gallery-tile.gallery-wide .gallery-photo { aspect-ratio: .95; }
+  .gallery-photo{ aspect-ratio: .95; }
   .gallery-label { min-height: 43px; padding-inline: 8px; font-size: 7px; }
 }
 @media (max-width: 390px) {
@@ -1687,22 +1367,11 @@ h1 span,
   .map-frame { height: 360px; }
 }
 
-.video-frame { position: relative; background: #080808; }
-.video-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; filter: saturate(.72); }
-.video-play { position: absolute; z-index: 3; top: 50%; left: 50%; display: grid; width: 60px; height: 60px; transform: translate(-50%,-50%); place-items: center; border: 1px solid rgba(255,255,255,.65); border-radius: 50%; background: rgba(10,10,10,.78); color: #fff; cursor: pointer; transition: background-color 180ms ease, transform 180ms ease; }
-.video-play:hover { transform: translate(-50%,-50%) scale(1.06); background: var(--color-accent); }
-.video-play svg { width: 26px; height: 26px; fill: currentColor; }
-.gallery-video { display: none; width: 100%; height: 100%; background: #050505; object-fit: contain; }
-.video-frame.is-ready .video-poster { display: none; }
-.video-frame.is-ready .video-play { display: none; }
-.video-frame.is-ready .gallery-video { display: block; }
-.video-error { position: absolute; z-index: 4; right: 10px; bottom: 10px; left: 10px; color: #fff; font-size: 10px; text-align: center; text-shadow: 0 1px 5px #000; }
-
 /* Keep the newly supplied group photos at their full native proportions. */
 .coach-card { display: flex; min-height: 0; flex-direction: column; overflow: hidden; }
 .coach-card::before, .coach-card::after { display: none; }
 .coach-card > img { position: static; display: block; width: 100%; height: auto; padding: 0; object-fit: contain; object-position: center; filter: saturate(.82); }
-.coach-card-footer { position: static; flex: 0 0 auto; padding: 14px 18px; background: #101010; }
+
 .group-photo { height: auto; min-height: 225px; }
 .group-photo img { position: static; display: block; width: 100%; height: auto; max-height: 520px; object-fit: contain; object-position: center; }
 @media (max-width: 740px) {
@@ -1725,7 +1394,7 @@ h1 span,
   .group-card-personal .group-photo { height: auto; min-height: 0; aspect-ratio: 4 / 3; }
 }
 
-/* Gallery: two photos left, looping muted video in the center, two photos right. */
+/* --- Gallery layout: two photos left, looping video center, two photos right --- */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1742,7 +1411,7 @@ h1 span,
   overflow: hidden;
   background: #101010;
 }
-.gallery-tile.gallery-wide { grid-column: auto; }
+
 .gallery-tile-lt { grid-area: lt; }
 .gallery-tile-lb { grid-area: lb; }
 .gallery-tile-rt { grid-area: rt; }
@@ -1756,7 +1425,7 @@ h1 span,
   overflow: hidden;
   background: #070707;
 }
-.gallery-tile.gallery-wide .gallery-photo { aspect-ratio: 4 / 3; }
+
 .gallery-photo img {
   display: block;
   width: 100%;
@@ -1826,8 +1495,7 @@ h1 span,
       "rb";
     gap: 12px;
   }
-  .gallery-photo,
-  .gallery-tile.gallery-wide .gallery-photo {
+  .gallery-photo{
     aspect-ratio: auto;
     height: auto;
   }
@@ -1849,6 +1517,10 @@ h1 span,
   .gallery-label { min-height: 46px; padding: 9px 12px; font-size: 9px; }
   .gallery-label b { display: inline; }
 }
+
+/* ==========================================================================
+   Map & contact details
+   ========================================================================== */
 
 /* Compact, full-bleed map directly above the footer. */
 .location-map-section { padding: 0; }
@@ -1875,10 +1547,11 @@ h1 span,
   .map-frame { height: 220px; }
 }
 
-/* ============================================================
-   2026-11 design pass: new transparent logo, new coach photo,
-   and improved legibility (size/weight only; font family later).
-   ============================================================ */
+/* ==========================================================================
+   Visual refinements & overrides
+   Layered passes kept in cascade order. Later rules intentionally override
+   earlier ones, so move blocks only together with a visual check.
+   ========================================================================== */
 
 /* --- Logo: transparent emblem instead of a white box --- */
 .brand-mark {
@@ -1908,20 +1581,12 @@ h1 span,
 }
 .hero-logo {
   width: min(100%, 390px);
+  height: auto;
   max-height: 430px;
   filter: drop-shadow(0 22px 46px rgba(0, 0, 0, 0.55));
 }
 
 /* --- Coach card caption: only the name, easier to read --- */
-.coach-card-footer {
-  align-self: stretch;
-  justify-content: flex-start;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-}
-.coach-card-footer span {
-  font-weight: 700;
-}
 
 /* --- Legibility: body copy --- */
 .hero-lead {
@@ -2153,7 +1818,7 @@ h1 span,
   .section-aside { font-size: 13.5px; }
   .section-heading-split { align-items: flex-start; }
   .coach-content > p { font-size: 14px; }
-  .coach-card-footer { font-size: 10.5px; }
+
   .schedule-card p { font-size: 11.5px; }
   .contact-link { font-size: 13px; }
   .gallery-label { font-size: 9.5px; }
@@ -2162,7 +1827,7 @@ h1 span,
 }
 @media (max-width: 390px) {
   .eyebrow { font-size: 10px; }
-  .coach-card-footer { font-size: 9.5px; }
+
   .gallery-label { font-size: 8.5px; }
   .schedule-card p { font-size: 11px; }
 }

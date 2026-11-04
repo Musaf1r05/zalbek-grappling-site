@@ -79,7 +79,11 @@ function initializeClubMap() {
     popupAnchor: [0, -32],
   });
 
-  window.L.marker(coordinates, { icon: markerIcon })
+  window.L.marker(coordinates, {
+    icon: markerIcon,
+    title: "Academy of Grappling",
+    alt: "Academy of Grappling",
+  })
     .addTo(map)
     .bindPopup("<strong>Academy of Grappling</strong><br>Ставрополь, ул. Ленина, 127<br>Бойцовский клуб «Октагон»");
 

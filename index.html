@@ -1,153 +1,814 @@
 <!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0a0a0a">
-  <meta name="description" content="Грэпплинг в Ставрополе с тренером Залбеком Рустамовым. Взрослые и детские группы, персональные занятия.">
-  <title>Залбек Рустамов — тренер по грэпплингу | Ставрополь</title>
-  <link rel="preload" href="vendor/fonts/oswald-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="vendor/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="vendor/fonts/fonts.css">
-  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
-  <link rel="stylesheet" href="style.css?v=20261106e">
-  <script defer src="vendor/leaflet/leaflet.js"></script>
-  <script defer src="script.js?v=20261106"></script>
-</head>
-<body id="top">
-  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.de https://*.tile.openstreetmap.org; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"
+    />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta
+      name="description"
+      content="Грэпплинг в Ставрополе с тренером Залбеком Рустамовым. Взрослые и детские группы, персональные занятия."
+    />
+    <meta name="author" content="Залбек Рустамов" />
+    <meta name="robots" content="index, follow" />
+    <title>Залбек Рустамов — тренер по грэпплингу | Ставрополь</title>
+    <link rel="canonical" href="https://agstavropol.ru/" />
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Залбек Рустамов — на главную">
-        <span class="brand-mark"><img src="images/logo-ag.png" alt="Логотип Academy of Grappling"></span>
-        <span class="brand-copy"><span class="brand-name">Залбек Рустамов</span><span class="brand-caption">Academy of Grappling</span></span>
-      </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню"><span></span><span></span></button>
-      <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
-        <a href="#coach">Тренер</a><a href="#groups">Группы</a><a href="#schedule">Расписание</a><a href="#prices">Цены</a>
-        <a class="nav-cta" href="#contacts">Записаться <span aria-hidden="true">↗</span></a>
-      </nav>
-    </div>
-  </header>
+    <!-- Open Graph и Twitter: превью ссылки в Telegram, VK и мессенджерах -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Academy of Grappling" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta
+      property="og:title"
+      content="Залбек Рустамов — тренер по грэпплингу | Ставрополь"
+    />
+    <meta
+      property="og:description"
+      content="Грэпплинг в Ставрополе с тренером Залбеком Рустамовым. Взрослые и детские группы, персональные занятия."
+    />
+    <meta property="og:url" content="https://agstavropol.ru/" />
+    <meta
+      property="og:image"
+      content="https://agstavropol.ru/images/og-preview.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Academy of Grappling — сила в контроле"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Залбек Рустамов — тренер по грэпплингу | Ставрополь"
+    />
+    <meta
+      name="twitter:description"
+      content="Грэпплинг в Ставрополе с тренером Залбеком Рустамовым. Взрослые и детские группы, персональные занятия."
+    />
+    <meta
+      name="twitter:image"
+      content="https://agstavropol.ru/images/og-preview.png"
+    />
 
-  <main id="main">
-    <section class="hero section-shell" aria-labelledby="hero-title">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow"><span class="eyebrow-line"></span> Грэпплинг · Ставрополь</p>
-          <h1 id="hero-title">СИЛА<br><span>В КОНТРОЛЕ</span></h1>
-          <p class="hero-lead">Грэпплинг для взрослых и детей. Техника, дисциплина и уверенность — шаг за шагом.</p>
-          <div class="hero-actions"><a class="button button-primary" href="#contacts">Записаться <span aria-hidden="true">↗</span></a><a class="button button-quiet" href="#prices">Посмотреть цены <span aria-hidden="true">↓</span></a></div><a class="promo-sticker" href="#contacts" data-until="2027-01-01" aria-label="Акция: мужчинам 30+ групповые тренировки бесплатно до Нового года"><span class="promo-top">Мужчинам 30+</span><strong class="promo-big">Бесплатно</strong><span class="promo-bottom">групповые тренировки<br>до Нового года</span></a>
-          <p class="hero-note"><span class="status-dot"></span> От первого занятия до уверенной борьбы</p>
-        </div>
-        <div class="hero-visual reveal" aria-label="Academy of Grappling">
-          <div class="visual-frame"><img class="hero-logo" src="images/logo-ag.png" alt="Academy of Grappling"></div>
-        </div>
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="images/favicon-192.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/apple-touch-icon.png"
+    />
+    <link
+      rel="preload"
+      href="vendor/fonts/oswald-cyrillic.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="vendor/fonts/manrope-cyrillic.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="vendor/fonts/fonts.css" />
+    <link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="style.css?v=20261106f" />
+    <script defer src="vendor/leaflet/leaflet.js"></script>
+    <script defer src="script.js?v=20261106a"></script>
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#top">
+          <span class="brand-mark"
+            ><img
+              src="images/logo-ag.png"
+              alt="Логотип Academy of Grappling"
+              width="512"
+              height="512"
+              decoding="async"
+          /></span>
+          <span class="brand-copy"
+            ><span class="brand-name">Залбек Рустамов</span
+            ><span class="brand-caption">Academy of Grappling</span></span
+          >
+        </a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Открыть меню"
+        >
+          <span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
+          <a href="#coach">Тренер</a><a href="#groups">Группы</a
+          ><a href="#schedule">Расписание</a><a href="#prices">Цены</a>
+          <a class="nav-cta" href="#contacts"
+            >Записаться <span aria-hidden="true">↗</span></a
+          >
+        </nav>
       </div>
-      <div class="container hero-bottom"><span class="hero-bottom-line"></span><span>Техника · Контроль · Характер</span></div>
-    </section>
+    </header>
 
-    <div class="intro-strip"><div class="container intro-strip-inner"><span>ACADEMY OF GRAPPLING</span><i></i><span>КОМАНДА ЛИДЕРОВ</span><i></i><span>ПУТЬ К ТРИУМФУ</span></div></div>
-
-    <section class="section section-coach" id="coach" aria-labelledby="coach-title">
-      <div class="container">
-        <div class="section-heading section-heading-split reveal"><div><p class="eyebrow"><span class="eyebrow-line"></span> Тренер · Спортсмен</p><h2 id="coach-title">СВОЙ<br><span class="accent-text">ТЕМП</span></h2></div><p class="section-aside">Опыт на ковре и в соревнованиях помогает выстраивать тренировки для учеников с разным уровнем подготовки.</p></div>
-        <div class="coach-grid">
-          <figure class="coach-card reveal"><img src="images/coach-armbar-new.jpg" alt="Залбек Рустамов выполняет болевой приём на соревновании" loading="lazy"></figure>
-          <div class="coach-content reveal"><div class="belt-label"><span class="belt-swatch"></span><span>КМС по грэпплингу · Коричневый пояс по BJJ</span></div><h3>ЗАЛБЕК<br>РУСТАМОВ</h3><p>Занимаюсь грэпплингом с 2019 года, тренирую с 2023 года. Выступаю на турнирах вместе со своими учениками.</p><p>Помогаю освоить технику, лучше понимать борьбу и уверенно двигаться к своим целям — от первых тренировок до соревнований.</p><p class="coach-small-note">Серебряный призёр чемпионата мира ACB JJ по пурпурным поясам. Чемпион Ставропольского края и ЮФО ACB JJ. Призёр чемпионатов и первенств СКФО.</p><a class="text-link" href="#groups">Выбрать группу <span aria-hidden="true">↗</span></a></div>
-        </div>
-        <div class="achievement-row reveal">
-          <div class="achievement-card"><span class="achievement-number">01</span><span class="achievement-label">Серебряный призёр чемпионата мира ACB JJ</span><span class="achievement-year">ПУРПУРНЫЕ ПОЯСА</span></div>
-          <div class="achievement-card"><span class="achievement-number">02</span><span class="achievement-label">Чемпион Ставропольского края</span><span class="achievement-year">ГРЭППЛИНГ</span></div>
-          <div class="achievement-card"><span class="achievement-number">03</span><span class="achievement-label">Чемпион ЮФО ACB JJ</span><span class="achievement-year">ПУРПУРНЫЕ ПОЯСА</span></div>
-          <div class="achievement-card"><span class="achievement-number">04</span><span class="achievement-label">Серебряный призёр ЮФО ACB JJ</span><span class="achievement-year">КОРИЧНЕВЫЕ ПОЯСА</span></div>
-          <div class="achievement-card"><span class="achievement-number">05</span><span class="achievement-label">Призёр чемпионата и первенства СКФО</span><span class="achievement-year">ДЕЙСТВУЮЩИЙ СПОРТСМЕН</span></div>
-          <div class="achievement-card"><span class="achievement-number">06</span><span class="achievement-label">Кандидат в мастера спорта</span><span class="achievement-year">ПО ГРЭППЛИНГУ</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-groups" id="groups" aria-labelledby="groups-title">
-      <div class="container">
-        <div class="section-heading section-heading-split reveal"><div><p class="eyebrow"><span class="eyebrow-line"></span> Для любого уровня</p><h2 id="groups-title">ОБЩАЯ<br><span class="accent-text">ЦЕЛЬ</span></h2></div><p class="section-aside">Занятия подходят всем — от новичка до опытного спортсмена. Выберите формат, который подходит именно вам.</p></div>
-        <div class="group-grid">
-          <article class="group-card group-card-photo group-card-adults reveal"><span class="group-index">01 / ГРУППА</span><div class="group-photo"><img src="images/adult-group-new.jpg" alt="Взрослая группа Academy of Grappling в зале Октагон" loading="lazy"></div><div class="group-card-copy"><h3>Взрослые</h3><p>Техника и уверенный шаг за шагом — для начинающих и опытных.</p></div><a href="#schedule" aria-label="Расписание взрослой группы">↗</a></article>
-          <article class="group-card group-card-photo group-card-kids reveal"><span class="group-index">02 / ГРУППА</span><div class="group-photo"><img src="images/kids-group-new.jpg" alt="Юные ученики Academy of Grappling в зале" loading="lazy"></div><div class="group-card-copy"><h3>Дети <span class="group-age">(4–14 лет)</span></h3><p>Знакомство с борьбой в подходящем темпе, дисциплина и команда.</p></div><a href="#schedule" aria-label="Расписание детской группы">↗</a></article>
-          <article class="group-card group-card-personal reveal"><span class="group-index">03 / ФОРМАТ</span><div class="group-photo"><img src="images/coach-profile-2gis.jpg" alt="Индивидуальная тренировка по грэпплингу" loading="lazy"></div><div class="group-card-copy"><h3>Персонально</h3><p>Занятие с тренером с учётом ваших целей и уровня подготовки.</p></div><a href="#personal-training" aria-label="Цены на персональные занятия">↗</a></article>
-        </div>
-        <div class="first-session reveal"><span class="first-session-label">ЧТО ВЗЯТЬ С СОБОЙ</span><p>Рашгард и шорты, полотенце, сменное бельё и тапочки. После тренировки можно принять душ — возьмите шампунь.</p></div>
-        <div class="gym-shop reveal"><span class="gym-shop-label">ФОРМА</span><strong>ФОРМУ МОЖНО КУПИТЬ В ЗАЛЕ</strong><span class="gym-shop-text">Рашгарды, шорты и всё необходимое — на месте, у тренера.</span></div>
-      </div>
-    </section>
-
-    <section class="quote-band" aria-label="Девиз команды"><div class="container quote-band-inner"><p>КОМАНДА ЛИДЕРОВ<br><span>ПУТЬ К ТРИУМФУ</span></p><span class="quote-caption">ACADEMY OF GRAPPLING · СТАВРОПОЛЬ</span></div></section>
-
-    <section class="section section-schedule" id="schedule" aria-labelledby="schedule-title">
-      <div class="container">
-        <div class="section-heading section-heading-split schedule-heading reveal"><div><p class="eyebrow"><span class="eyebrow-line"></span> Время тренировок</p><h2 id="schedule-title">ВРЕМЯ<br><span class="accent-text">РАБОТАТЬ</span></h2></div><div class="address-card"><span class="address-icon"><img src="images/logo-ag.png" alt="" loading="lazy"></span><div><span class="address-label">ГДЕ ТРЕНИРУЕМСЯ</span><strong>Academy of Grappling</strong><span class="address-detail">Ставрополь, ул. Ленина, 127<br>Бойцовский клуб «Октагон»</span><a href="#map">Уточнить маршрут ↓</a></div></div></div>
-        <div class="schedule-cards reveal">
-          <article class="schedule-card"><span class="schedule-card-index">01</span><div><h3>Взрослая группа</h3><p>Вторник · Четверг · Суббота</p></div><strong>20:00–22:00</strong></article>
-          <article class="schedule-card"><span class="schedule-card-index">02</span><div><h3>Детская группа</h3><p>Понедельник · Среда · Пятница</p></div><strong>16:30–17:30</strong></article>
-          <article class="schedule-card"><span class="schedule-card-index">03</span><div><h3>Персональные занятия</h3><p>Время согласовывается индивидуально</p></div><a class="text-link" href="#contacts">Уточнить <span aria-hidden="true">↗</span></a></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-prices" id="prices" aria-labelledby="prices-title">
-      <div class="container"><div class="section-heading section-heading-split reveal"><div><p class="eyebrow"><span class="eyebrow-line"></span> Стоимость занятий</p><h2 id="prices-title">ФОРМАТ<br><span class="accent-text">И ЦЕНА</span></h2></div><p class="section-aside">Первое разовое занятие — 500 ₽.</p></div>
-        <div class="price-grid">
-          <article class="price-card reveal"><span class="price-index">01 / РАЗОВО</span><h3>ОДНО<br>ЗАНЯТИЕ</h3><p class="price-amount">500 <span>₽</span></p><p class="price-description">Для взрослой и детской группы</p><a class="price-link" href="#contacts">Записаться <span aria-hidden="true">↗</span></a></article>
-          <article class="price-card price-card-featured reveal"><span class="price-index">02 / АБОНЕМЕНТ</span><span class="price-badge">ВЗРОСЛЫЕ И ДЕТИ</span><h3>ГРУППОВЫЕ<br>ТРЕНИРОВКИ</h3><div class="price-options"><div><span>Взрослая группа / месяц</span><strong>3 500 ₽</strong></div><div><span>Детская группа / месяц</span><strong>4 000 ₽</strong></div></div><p class="price-description price-description">Абонемент на месяц</p><a class="price-link" href="#contacts">Записаться <span aria-hidden="true">↗</span></a></article>
-          <article class="price-card price-card-personal reveal" id="personal-training"><span class="price-index">03 / ИНДИВИДУАЛЬНО</span><h3>ПЕРСОНАЛЬНОЕ<br>ЗАНЯТИЕ</h3><p class="price-amount">2 000 <span>₽</span></p><p class="price-description">Разовое занятие · время по договорённости</p><div class="price-packages"><p class="price-packages-title">Пакеты</p><ul class="price-packages-list"><li><span class="pp-name">Стартовый <i>· 4 занятия</i></span><b>7 400 ₽</b><span class="pp-desc">Первое знакомство с борьбой</span><em class="pp-unit">1 850 ₽ / занятие</em></li><li><span class="pp-name">Базовый <i>· 8 занятий</i></span><b>14 000 ₽</b><span class="pp-desc">Техника уходит в практику</span><em class="pp-unit">1 750 ₽ / занятие</em></li><li><span class="pp-name">Продвинутый <i>· 12 занятий</i></span><b>19 800 ₽</b><span class="pp-desc">Система и подготовка к стартам</span><em class="pp-unit">1 650 ₽ / занятие</em></li><li class="is-best"><span class="pp-name">Максимальный <i>· 16 занятий</i></span><b>24 000 ₽</b><span class="pp-desc">Полный цикл подготовки · лучшая цена</span><em class="pp-unit">1 500 ₽ / занятие</em></li></ul></div><a class="price-link" href="#contacts">Записаться <span aria-hidden="true">↗</span></a></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-gallery" id="gallery" aria-labelledby="gallery-title">
-      <div class="container"><div class="section-heading section-heading-split reveal"><div><p class="eyebrow"><span class="eyebrow-line"></span> Атмосфера</p><h2 id="gallery-title">ДВИЖЕНИЕ<br><span class="accent-text">И КОМАНДА</span></h2></div><p class="section-aside">Тренировки, команда и путь на соревнованиях — вместе на ковре и за его пределами.</p></div>
-        <div class="gallery-grid">
-          <figure class="gallery-tile gallery-tile-lt reveal"><div class="gallery-photo"><img src="images/gallery-medalists.jpg" alt="Спортсмены Academy of Grappling с медалями после турнира" loading="lazy"></div><figcaption class="gallery-label"><b>01</b> РАДОСТЬ СПОРТИВНОЙ ПОБЕДЫ</figcaption></figure>
-          <figure class="gallery-tile gallery-tile-lb reveal"><div class="gallery-photo"><img src="images/gallery-team-competition.jpg" alt="Команда Academy of Grappling на соревнованиях" loading="lazy"></div><figcaption class="gallery-label"><b>02</b> ВЫХОДИМ НА ТУРНИР ВМЕСТЕ</figcaption></figure>
-          <figure class="gallery-tile gallery-tile-video reveal">
-            <div class="gallery-video-frame">
-              <video class="gallery-local-video" autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" aria-label="Видео тренировок Academy of Grappling">
-                <source src="videos/academy-grappling-2gis.mp4" type="video/mp4">
-                Ваш браузер не поддерживает воспроизведение видео.
-              </video>
+    <main id="main">
+      <section class="hero section-shell" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">
+              <span class="eyebrow-line"></span> Грэпплинг · Ставрополь
+            </p>
+            <h1 id="hero-title">СИЛА<br /><span>В КОНТРОЛЕ</span></h1>
+            <p class="hero-lead">
+              Грэпплинг для взрослых и детей. Техника, дисциплина и уверенность
+              — шаг за шагом.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#contacts"
+                >Записаться <span aria-hidden="true">↗</span></a
+              ><a class="button button-quiet" href="#prices"
+                >Посмотреть цены <span aria-hidden="true">↓</span></a
+              >
             </div>
-            <figcaption class="gallery-label"><b>03</b> ТРЕНИРОВКИ В ДВИЖЕНИИ</figcaption>
-          </figure>
-          <figure class="gallery-tile gallery-tile-rt reveal"><div class="gallery-photo"><img src="images/gallery-podium.jpg" alt="Залбек Рустамов и ученики на пьедестале турнира" loading="lazy"></div><figcaption class="gallery-label"><b>04</b> ТРУД, КОТОРЫЙ ПРИНОСИТ РЕЗУЛЬТАТ</figcaption></figure>
-          <figure class="gallery-tile gallery-tile-rb reveal"><div class="gallery-photo"><img src="images/gallery-team-open.jpg" alt="Залбек Рустамов на турнире" loading="lazy"></div><figcaption class="gallery-label"><b>05</b> ТРЕНЕР НА ТУРНИРЕ</figcaption></figure>
+            <a class="promo-sticker" href="#contacts" data-until="2027-01-01"
+              ><span class="promo-top">Мужчинам 30+</span
+              ><strong class="promo-big">Бесплатно</strong
+              ><span class="promo-bottom"
+                >групповые тренировки<br />до Нового года</span
+              ></a
+            >
+            <p class="hero-note">
+              <span class="status-dot"></span> От первого занятия до уверенной
+              борьбы
+            </p>
+          </div>
+          <div class="hero-visual reveal" aria-label="Academy of Grappling">
+            <div class="visual-frame">
+              <img
+                class="hero-logo"
+                src="images/logo-ag.png"
+                alt="Academy of Grappling"
+                width="512"
+                height="512"
+                decoding="async"
+                fetchpriority="high"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="container hero-bottom">
+          <span class="hero-bottom-line"></span
+          ><span>Техника · Контроль · Характер</span>
+        </div>
+      </section>
+
+      <div class="intro-strip">
+        <div class="container intro-strip-inner">
+          <span>ACADEMY OF GRAPPLING</span><i></i><span>КОМАНДА ЛИДЕРОВ</span
+          ><i></i><span>ПУТЬ К ТРИУМФУ</span>
         </div>
       </div>
-    </section>
 
-    <section class="contact-section" id="contacts" aria-labelledby="contacts-title">
-      <div class="container contact-panel reveal"><div class="contact-copy"><p class="eyebrow"><span class="eyebrow-line"></span> Первый шаг</p><h2 id="contacts-title">ГОТОВЫ<br><span class="accent-text">НАЧАТЬ?</span></h2><p>Напишите или позвоните тренеру — подскажем, какая группа подойдёт, и ответим на вопросы.</p></div>
-        <div class="contact-links">
-          <a class="contact-link" href="https://t.me/thezalbek" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.8 4.2 18.5 20c-.25 1.12-.91 1.4-1.84.87l-5.1-3.76-2.46 2.37c-.27.27-.5.5-1.03.5l.37-5.2 9.47-8.56c.41-.37-.09-.58-.63-.21L5.57 13.3.54 11.73c-1.1-.34-1.12-1.1.23-1.63L20.44 2.5c.92-.34 1.72.22 1.36 1.7Z"/></svg><span>Telegram</span><span aria-hidden="true">↗</span></a>
-          <a class="contact-link" href="https://vk.ru/thezalbek" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5C3 4.12 4.12 3 5.5 3h13C19.88 3 21 4.12 21 5.5v13c0 1.38-1.12 2.5-2.5 2.5h-13C4.12 21 3 19.88 3 18.5v-13Zm3.1 2.1c.18 4.33 2.25 6.93 5.8 6.93h.2v-2.48c1.3.13 2.29 1.09 2.69 2.48h2.43c-.55-2-1.77-3.04-2.53-3.43.76-.48 1.84-1.67 2.18-3.5h-2.2c-.36 1.5-1.46 2.86-2.57 2.96V7.6h-2.2v5.2c-1.13-.28-2.49-1.75-2.56-5.2H6.1Z"/></svg><span>ВКонтакте</span><span aria-hidden="true">↗</span></a>
-          <a class="contact-link" href="https://www.instagram.com/thezalbek/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.7" r=".8" fill="currentColor" stroke="none"/></svg><span>Instagram*</span><span aria-hidden="true">↗</span></a>
-          <a class="contact-link" href="tel:+79094946278"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.35 1.9.69 2.79a2 2 0 0 1-.45 2.11L8.08 9.91a16 16 0 0 0 6 6l1.29-1.27a2 2 0 0 1 2.11-.45c.89.34 1.83.57 2.79.69A2 2 0 0 1 22 16.92z"/></svg><span>Позвонить · +7 909 494-62-78</span><span aria-hidden="true">↗</span></a>
-          <p class="contact-note">* Деятельность организации Meta запрещена на территории РФ.</p>
+      <section
+        class="section section-coach"
+        id="coach"
+        aria-labelledby="coach-title"
+      >
+        <div class="container">
+          <div class="section-heading section-heading-split reveal">
+            <div>
+              <p class="eyebrow">
+                <span class="eyebrow-line"></span> Тренер · Спортсмен
+              </p>
+              <h2 id="coach-title">
+                СВОЙ<br /><span class="accent-text">ТЕМП</span>
+              </h2>
+            </div>
+            <p class="section-aside">
+              Опыт на ковре и в соревнованиях помогает выстраивать тренировки
+              для учеников с разным уровнем подготовки.
+            </p>
+          </div>
+          <div class="coach-grid">
+            <figure class="coach-card reveal">
+              <img
+                src="images/coach-armbar-new.jpg"
+                alt="Залбек Рустамов выполняет болевой приём на соревновании"
+                loading="lazy"
+                width="1024"
+                height="1536"
+                decoding="async"
+              />
+            </figure>
+            <div class="coach-content reveal">
+              <div class="belt-label">
+                <span class="belt-swatch"></span
+                ><span>КМС по грэпплингу · Коричневый пояс по BJJ</span>
+              </div>
+              <h3>ЗАЛБЕК<br />РУСТАМОВ</h3>
+              <p>
+                Занимаюсь грэпплингом с 2019 года, тренирую с 2023 года.
+                Выступаю на турнирах вместе со своими учениками.
+              </p>
+              <p>
+                Помогаю освоить технику, лучше понимать борьбу и уверенно
+                двигаться к своим целям — от первых тренировок до соревнований.
+              </p>
+              <p class="coach-small-note">
+                Серебряный призёр чемпионата мира ACB JJ по пурпурным поясам.
+                Чемпион Ставропольского края и ЮФО ACB JJ. Призёр чемпионатов и
+                первенств СКФО.
+              </p>
+              <a class="text-link" href="#groups"
+                >Выбрать группу <span aria-hidden="true">↗</span></a
+              >
+            </div>
+          </div>
+          <div class="achievement-row reveal">
+            <div class="achievement-card">
+              <span class="achievement-number">01</span
+              ><span class="achievement-label"
+                >Серебряный призёр чемпионата мира ACB JJ</span
+              ><span class="achievement-year">ПУРПУРНЫЕ ПОЯСА</span>
+            </div>
+            <div class="achievement-card">
+              <span class="achievement-number">02</span
+              ><span class="achievement-label"
+                >Чемпион Ставропольского края</span
+              ><span class="achievement-year">ГРЭППЛИНГ</span>
+            </div>
+            <div class="achievement-card">
+              <span class="achievement-number">03</span
+              ><span class="achievement-label">Чемпион ЮФО ACB JJ</span
+              ><span class="achievement-year">ПУРПУРНЫЕ ПОЯСА</span>
+            </div>
+            <div class="achievement-card">
+              <span class="achievement-number">04</span
+              ><span class="achievement-label"
+                >Серебряный призёр ЮФО ACB JJ</span
+              ><span class="achievement-year">КОРИЧНЕВЫЕ ПОЯСА</span>
+            </div>
+            <div class="achievement-card">
+              <span class="achievement-number">05</span
+              ><span class="achievement-label"
+                >Призёр чемпионата и первенства СКФО</span
+              ><span class="achievement-year">ДЕЙСТВУЮЩИЙ СПОРТСМЕН</span>
+            </div>
+            <div class="achievement-card">
+              <span class="achievement-number">06</span
+              ><span class="achievement-label">Кандидат в мастера спорта</span
+              ><span class="achievement-year">ПО ГРЭППЛИНГУ</span>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="location-map-section" id="map" aria-labelledby="map-title">
-      <div class="location-map">
-        <div class="location-map-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span> Academy of Grappling · Ставрополь</p><h2 id="map-title">КАК НАС НАЙТИ</h2><p>Улица Ленина, 127 · бойцовский клуб «Октагон»</p></div><div class="map-actions"><a class="map-link" href="https://yandex.ru/maps/org/akademiya_grepplinga/58213744202/" target="_blank" rel="noopener noreferrer">Маршрут в Яндекс Картах <span aria-hidden="true">↗</span></a><a class="map-link" href="https://2gis.ru/stavropol/firm/70000001110914085" target="_blank" rel="noopener noreferrer">Карточка в 2ГИС <span aria-hidden="true">↗</span></a></div></div>
-        <div class="map-frame" id="club-map" role="application" aria-label="Интерактивная карта с местом расположения зала"></div>
-        <p class="map-attribution">Карта © OpenStreetMap contributors · openstreetmap.de</p>
-      </div>
-    </section>
-  </main>
+      <section
+        class="section section-groups"
+        id="groups"
+        aria-labelledby="groups-title"
+      >
+        <div class="container">
+          <div class="section-heading section-heading-split reveal">
+            <div>
+              <p class="eyebrow">
+                <span class="eyebrow-line"></span> Для любого уровня
+              </p>
+              <h2 id="groups-title">
+                ОБЩАЯ<br /><span class="accent-text">ЦЕЛЬ</span>
+              </h2>
+            </div>
+            <p class="section-aside">
+              Занятия подходят всем — от новичка до опытного спортсмена.
+              Выберите формат, который подходит именно вам.
+            </p>
+          </div>
+          <div class="group-grid">
+            <article
+              class="group-card group-card-photo group-card-adults reveal"
+            >
+              <span class="group-index">01 / ГРУППА</span>
+              <div class="group-photo">
+                <img
+                  src="images/adult-group-new.jpg"
+                  alt="Взрослая группа Academy of Grappling в зале Октагон"
+                  loading="lazy"
+                  width="1920"
+                  height="1864"
+                  decoding="async"
+                />
+              </div>
+              <div class="group-card-copy">
+                <h3>Взрослые</h3>
+                <p>
+                  Техника и уверенный шаг за шагом — для начинающих и опытных.
+                </p>
+              </div>
+              <a href="#schedule" aria-label="Расписание взрослой группы">↗</a>
+            </article>
+            <article class="group-card group-card-photo group-card-kids reveal">
+              <span class="group-index">02 / ГРУППА</span>
+              <div class="group-photo">
+                <img
+                  src="images/kids-group-new.jpg"
+                  alt="Юные ученики Academy of Grappling в зале"
+                  loading="lazy"
+                  width="1440"
+                  height="1446"
+                  decoding="async"
+                />
+              </div>
+              <div class="group-card-copy">
+                <h3>Дети <span class="group-age">(4–14 лет)</span></h3>
+                <p>
+                  Знакомство с борьбой в подходящем темпе, дисциплина и команда.
+                </p>
+              </div>
+              <a href="#schedule" aria-label="Расписание детской группы">↗</a>
+            </article>
+            <article class="group-card group-card-personal reveal">
+              <span class="group-index">03 / ФОРМАТ</span>
+              <div class="group-photo">
+                <img
+                  src="images/coach-profile-2gis.jpg"
+                  alt="Индивидуальная тренировка по грэпплингу"
+                  loading="lazy"
+                  width="1440"
+                  height="960"
+                  decoding="async"
+                />
+              </div>
+              <div class="group-card-copy">
+                <h3>Персонально</h3>
+                <p>
+                  Занятие с тренером с учётом ваших целей и уровня подготовки.
+                </p>
+              </div>
+              <a
+                href="#personal-training"
+                aria-label="Цены на персональные занятия"
+                >↗</a
+              >
+            </article>
+          </div>
+          <div class="first-session reveal">
+            <span class="first-session-label">ЧТО ВЗЯТЬ С СОБОЙ</span>
+            <p>
+              Рашгард и шорты, полотенце, сменное бельё и тапочки. После
+              тренировки можно принять душ — возьмите шампунь.
+            </p>
+          </div>
+          <div class="gym-shop reveal">
+            <span class="gym-shop-label">ФОРМА</span
+            ><strong>ФОРМУ МОЖНО КУПИТЬ В ЗАЛЕ</strong
+            ><span class="gym-shop-text"
+              >Рашгарды, шорты и всё необходимое — на месте, у тренера.</span
+            >
+          </div>
+        </div>
+      </section>
 
-  <footer class="site-footer">
-    <div class="container footer-inner"><a class="brand" href="#top"><span class="brand-mark"><img src="images/logo-ag.png" alt=""></span><span class="brand-copy"><span class="brand-name">Залбек Рустамов</span><span class="brand-caption">Academy of Grappling</span></span></a><p>КОМАНДА ЛИДЕРОВ · ПУТЬ К ТРИУМФУ</p><a class="back-top" href="#top">НАВЕРХ <span aria-hidden="true">↑</span></a></div>
-    <div class="container footer-bottom"><span>© <span id="current-year">2026</span> Academy of Grappling · Ставрополь</span><span>Грэпплинг · Тренировки для взрослых и детей</span></div>
-  </footer>
-</body>
+      <section class="quote-band" aria-label="Девиз команды">
+        <div class="container quote-band-inner">
+          <p>КОМАНДА ЛИДЕРОВ<br /><span>ПУТЬ К ТРИУМФУ</span></p>
+          <span class="quote-caption">ACADEMY OF GRAPPLING · СТАВРОПОЛЬ</span>
+        </div>
+      </section>
+
+      <section
+        class="section section-schedule"
+        id="schedule"
+        aria-labelledby="schedule-title"
+      >
+        <div class="container">
+          <div
+            class="section-heading section-heading-split schedule-heading reveal"
+          >
+            <div>
+              <p class="eyebrow">
+                <span class="eyebrow-line"></span> Время тренировок
+              </p>
+              <h2 id="schedule-title">
+                ВРЕМЯ<br /><span class="accent-text">РАБОТАТЬ</span>
+              </h2>
+            </div>
+            <div class="address-card">
+              <span class="address-icon"
+                ><img
+                  src="images/logo-ag.png"
+                  alt=""
+                  loading="lazy"
+                  width="512"
+                  height="512"
+                  decoding="async"
+              /></span>
+              <div>
+                <span class="address-label">ГДЕ ТРЕНИРУЕМСЯ</span
+                ><strong>Academy of Grappling</strong
+                ><span class="address-detail"
+                  >Ставрополь, ул. Ленина, 127<br />Бойцовский клуб
+                  «Октагон»</span
+                ><a href="#map">Уточнить маршрут ↓</a>
+              </div>
+            </div>
+          </div>
+          <div class="schedule-cards reveal">
+            <article class="schedule-card">
+              <span class="schedule-card-index">01</span>
+              <div>
+                <h3>Взрослая группа</h3>
+                <p>Вторник · Четверг · Суббота</p>
+              </div>
+              <strong>20:00–21:30</strong>
+            </article>
+            <article class="schedule-card">
+              <span class="schedule-card-index">02</span>
+              <div>
+                <h3>Детская группа</h3>
+                <p>Понедельник · Среда · Пятница</p>
+              </div>
+              <strong>16:30–17:30</strong>
+            </article>
+            <article class="schedule-card">
+              <span class="schedule-card-index">03</span>
+              <div>
+                <h3>Персональные занятия</h3>
+                <p>Время согласовывается индивидуально</p>
+              </div>
+              <a class="text-link" href="#contacts"
+                >Уточнить <span aria-hidden="true">↗</span></a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section section-prices"
+        id="prices"
+        aria-labelledby="prices-title"
+      >
+        <div class="container">
+          <div class="section-heading section-heading-split reveal">
+            <div>
+              <p class="eyebrow">
+                <span class="eyebrow-line"></span> Стоимость занятий
+              </p>
+              <h2 id="prices-title">
+                ФОРМАТ<br /><span class="accent-text">И ЦЕНА</span>
+              </h2>
+            </div>
+            <p class="section-aside">Первое разовое занятие — 500 ₽.</p>
+          </div>
+          <div class="price-grid">
+            <article class="price-card reveal">
+              <span class="price-index">01 / РАЗОВО</span>
+              <h3>ОДНО<br />ЗАНЯТИЕ</h3>
+              <p class="price-amount">500 <span>₽</span></p>
+              <p class="price-description">Для взрослой и детской группы</p>
+              <a class="price-link" href="#contacts"
+                >Записаться <span aria-hidden="true">↗</span></a
+              >
+            </article>
+            <article class="price-card price-card-featured reveal">
+              <span class="price-index">02 / АБОНЕМЕНТ</span
+              ><span class="price-badge">ВЗРОСЛЫЕ И ДЕТИ</span>
+              <h3>ГРУППОВЫЕ<br />ТРЕНИРОВКИ</h3>
+              <div class="price-options">
+                <div>
+                  <span>Взрослая группа / месяц</span><strong>3 500 ₽</strong>
+                </div>
+                <div>
+                  <span>Детская группа / месяц</span><strong>4 000 ₽</strong>
+                </div>
+              </div>
+              <p class="price-description price-description">
+                Абонемент на месяц
+              </p>
+              <a class="price-link" href="#contacts"
+                >Записаться <span aria-hidden="true">↗</span></a
+              >
+            </article>
+            <article
+              class="price-card price-card-personal reveal"
+              id="personal-training"
+            >
+              <span class="price-index">03 / ИНДИВИДУАЛЬНО</span>
+              <h3>ПЕРСОНАЛЬНОЕ<br />ЗАНЯТИЕ</h3>
+              <p class="price-amount">2 000 <span>₽</span></p>
+              <p class="price-description">
+                Разовое занятие · время по договорённости
+              </p>
+              <div class="price-packages">
+                <p class="price-packages-title">Пакеты</p>
+                <ul class="price-packages-list">
+                  <li>
+                    <span class="pp-name">Стартовый <i>· 4 занятия</i></span
+                    ><b>7 400 ₽</b
+                    ><span class="pp-desc">Первое знакомство с борьбой</span
+                    ><em class="pp-unit">1 850 ₽ / занятие</em>
+                  </li>
+                  <li>
+                    <span class="pp-name">Базовый <i>· 8 занятий</i></span
+                    ><b>14 000 ₽</b
+                    ><span class="pp-desc">Техника уходит в практику</span
+                    ><em class="pp-unit">1 750 ₽ / занятие</em>
+                  </li>
+                  <li>
+                    <span class="pp-name">Продвинутый <i>· 12 занятий</i></span
+                    ><b>19 800 ₽</b
+                    ><span class="pp-desc">Система и подготовка к стартам</span
+                    ><em class="pp-unit">1 650 ₽ / занятие</em>
+                  </li>
+                  <li class="is-best">
+                    <span class="pp-name">Максимальный <i>· 16 занятий</i></span
+                    ><b>24 000 ₽</b
+                    ><span class="pp-desc"
+                      >Полный цикл подготовки · лучшая цена</span
+                    ><em class="pp-unit">1 500 ₽ / занятие</em>
+                  </li>
+                </ul>
+              </div>
+              <a class="price-link" href="#contacts"
+                >Записаться <span aria-hidden="true">↗</span></a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section section-gallery"
+        id="gallery"
+        aria-labelledby="gallery-title"
+      >
+        <div class="container">
+          <div class="section-heading section-heading-split reveal">
+            <div>
+              <p class="eyebrow">
+                <span class="eyebrow-line"></span> Атмосфера
+              </p>
+              <h2 id="gallery-title">
+                ДВИЖЕНИЕ<br /><span class="accent-text">И КОМАНДА</span>
+              </h2>
+            </div>
+            <p class="section-aside">
+              Тренировки, команда и путь на соревнованиях — вместе на ковре и за
+              его пределами.
+            </p>
+          </div>
+          <div class="gallery-grid">
+            <figure class="gallery-tile gallery-tile-lt reveal">
+              <div class="gallery-photo">
+                <img
+                  src="images/gallery-medalists.jpg"
+                  alt="Спортсмены Academy of Grappling с медалями после турнира"
+                  loading="lazy"
+                  width="960"
+                  height="816"
+                  decoding="async"
+                />
+              </div>
+              <figcaption class="gallery-label">
+                <b>01</b> РАДОСТЬ СПОРТИВНОЙ ПОБЕДЫ
+              </figcaption>
+            </figure>
+            <figure class="gallery-tile gallery-tile-lb reveal">
+              <div class="gallery-photo">
+                <img
+                  src="images/gallery-team-competition.jpg"
+                  alt="Команда Academy of Grappling на соревнованиях"
+                  loading="lazy"
+                  width="1079"
+                  height="1079"
+                  decoding="async"
+                />
+              </div>
+              <figcaption class="gallery-label">
+                <b>02</b> ВЫХОДИМ НА ТУРНИР ВМЕСТЕ
+              </figcaption>
+            </figure>
+            <figure class="gallery-tile gallery-tile-video reveal">
+              <div class="gallery-video-frame">
+                <video
+                  class="gallery-local-video"
+                  width="590"
+                  height="1080"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  webkit-playsinline
+                  preload="auto"
+                  disablepictureinpicture
+                  controlslist="nodownload nofullscreen noremoteplayback"
+                  aria-label="Видео тренировок Academy of Grappling"
+                >
+                  <source
+                    src="videos/academy-grappling-2gis.mp4"
+                    type="video/mp4"
+                  />
+                  Ваш браузер не поддерживает воспроизведение видео.
+                </video>
+              </div>
+              <figcaption class="gallery-label">
+                <b>03</b> ТРЕНИРОВКИ В ДВИЖЕНИИ
+              </figcaption>
+            </figure>
+            <figure class="gallery-tile gallery-tile-rt reveal">
+              <div class="gallery-photo">
+                <img
+                  src="images/gallery-podium.jpg"
+                  alt="Залбек Рустамов и ученики на пьедестале турнира"
+                  loading="lazy"
+                  width="960"
+                  height="693"
+                  decoding="async"
+                />
+              </div>
+              <figcaption class="gallery-label">
+                <b>04</b> ТРУД, КОТОРЫЙ ПРИНОСИТ РЕЗУЛЬТАТ
+              </figcaption>
+            </figure>
+            <figure class="gallery-tile gallery-tile-rb reveal">
+              <div class="gallery-photo">
+                <img
+                  src="images/gallery-team-open.jpg"
+                  alt="Залбек Рустамов на турнире"
+                  loading="lazy"
+                  width="1919"
+                  height="2560"
+                  decoding="async"
+                />
+              </div>
+              <figcaption class="gallery-label">
+                <b>05</b> ТРЕНЕР НА ТУРНИРЕ
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="contact-section"
+        id="contacts"
+        aria-labelledby="contacts-title"
+      >
+        <div class="container contact-panel reveal">
+          <div class="contact-copy">
+            <p class="eyebrow"><span class="eyebrow-line"></span> Первый шаг</p>
+            <h2 id="contacts-title">
+              ГОТОВЫ<br /><span class="accent-text">НАЧАТЬ?</span>
+            </h2>
+            <p>
+              Напишите или позвоните тренеру — подскажем, какая группа подойдёт,
+              и ответим на вопросы.
+            </p>
+          </div>
+          <div class="contact-links">
+            <a
+              class="contact-link"
+              href="https://t.me/thezalbek"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M21.8 4.2 18.5 20c-.25 1.12-.91 1.4-1.84.87l-5.1-3.76-2.46 2.37c-.27.27-.5.5-1.03.5l.37-5.2 9.47-8.56c.41-.37-.09-.58-.63-.21L5.57 13.3.54 11.73c-1.1-.34-1.12-1.1.23-1.63L20.44 2.5c.92-.34 1.72.22 1.36 1.7Z"
+                /></svg
+              ><span>Telegram</span><span aria-hidden="true">↗</span></a
+            >
+            <a
+              class="contact-link"
+              href="https://vk.ru/thezalbek"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M3 5.5C3 4.12 4.12 3 5.5 3h13C19.88 3 21 4.12 21 5.5v13c0 1.38-1.12 2.5-2.5 2.5h-13C4.12 21 3 19.88 3 18.5v-13Zm3.1 2.1c.18 4.33 2.25 6.93 5.8 6.93h.2v-2.48c1.3.13 2.29 1.09 2.69 2.48h2.43c-.55-2-1.77-3.04-2.53-3.43.76-.48 1.84-1.67 2.18-3.5h-2.2c-.36 1.5-1.46 2.86-2.57 2.96V7.6h-2.2v5.2c-1.13-.28-2.49-1.75-2.56-5.2H6.1Z"
+                /></svg
+              ><span>ВКонтакте</span><span aria-hidden="true">↗</span></a
+            >
+            <a
+              class="contact-link"
+              href="https://www.instagram.com/thezalbek/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle
+                  cx="17.5"
+                  cy="6.7"
+                  r=".8"
+                  fill="currentColor"
+                  stroke="none"
+                /></svg
+              ><span>Instagram*</span><span aria-hidden="true">↗</span></a
+            >
+            <a class="contact-link" href="tel:+79094946278"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.35 1.9.69 2.79a2 2 0 0 1-.45 2.11L8.08 9.91a16 16 0 0 0 6 6l1.29-1.27a2 2 0 0 1 2.11-.45c.89.34 1.83.57 2.79.69A2 2 0 0 1 22 16.92z"
+                /></svg
+              ><span>Позвонить · +7 909 494-62-78</span
+              ><span aria-hidden="true">↗</span></a
+            >
+            <p class="contact-note">
+              * Деятельность организации Meta запрещена на территории РФ.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="location-map-section"
+        id="map"
+        aria-labelledby="map-title"
+      >
+        <div class="location-map">
+          <div class="location-map-heading">
+            <div>
+              <p class="eyebrow">
+                <span class="eyebrow-line"></span> Academy of Grappling ·
+                Ставрополь
+              </p>
+              <h2 id="map-title">КАК НАС НАЙТИ</h2>
+              <p>Улица Ленина, 127 · бойцовский клуб «Октагон»</p>
+            </div>
+            <div class="map-actions">
+              <a
+                class="map-link"
+                href="https://yandex.ru/maps/org/akademiya_grepplinga/58213744202/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Маршрут в Яндекс Картах <span aria-hidden="true">↗</span></a
+              ><a
+                class="map-link"
+                href="https://2gis.ru/stavropol/firm/70000001110914085"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Карточка в 2ГИС <span aria-hidden="true">↗</span></a
+              >
+            </div>
+          </div>
+          <div
+            class="map-frame"
+            id="club-map"
+            role="application"
+            aria-label="Интерактивная карта с местом расположения зала"
+          ></div>
+          <p class="map-attribution">
+            Карта © OpenStreetMap contributors · openstreetmap.de
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a class="brand" href="#top"
+          ><span class="brand-mark"
+            ><img
+              src="images/logo-ag.png"
+              alt=""
+              width="512"
+              height="512"
+              decoding="async" /></span
+          ><span class="brand-copy"
+            ><span class="brand-name">Залбек Рустамов</span
+            ><span class="brand-caption">Academy of Grappling</span></span
+          ></a
+        >
+        <p>КОМАНДА ЛИДЕРОВ · ПУТЬ К ТРИУМФУ</p>
+        <a class="back-top" href="#top"
+          >НАВЕРХ <span aria-hidden="true">↑</span></a
+        >
+      </div>
+      <div class="container footer-bottom">
+        <span
+          >© <span id="current-year">2026</span> Academy of Grappling ·
+          Ставрополь</span
+        ><span>Грэпплинг · Тренировки для взрослых и детей</span>
+      </div>
+    </footer>
+  </body>
 </html>
