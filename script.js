@@ -125,3 +125,13 @@ if (mapElement && "IntersectionObserver" in window) {
   initializeClubMap();
 }
 
+
+// Promo sticker: hide automatically after the date in data-until.
+const promoSticker = document.querySelector(".promo-sticker");
+if (promoSticker) {
+  const until = promoSticker.dataset.until;
+  const deadline = until ? new Date(until + "T00:00:00") : null;
+  if (deadline && !Number.isNaN(deadline.getTime()) && new Date() >= deadline) {
+    promoSticker.remove();
+  }
+}
