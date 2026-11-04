@@ -10,8 +10,8 @@
   --color-accent-deep: #4d0b0e;
   --color-border: rgba(245, 243, 241, 0.14);
   --color-border-strong: rgba(245, 243, 241, 0.28);
-  --font-display: "Bahnschrift SemiCondensed", "Arial Narrow", Impact, sans-serif;
-  --font-body: "Segoe UI", Arial, sans-serif;
+  --font-display: "Oswald", "Bahnschrift SemiCondensed", "Arial Narrow", Impact, sans-serif;
+  --font-body: "Manrope", "Segoe UI", Arial, sans-serif;
   --container: 1160px;
   --header-height: 78px;
   --radius-small: 5px;
@@ -1873,5 +1873,353 @@ h1 span,
 @media (max-width: 740px) {
   .location-map-heading { padding: 20px 18px; }
   .map-frame { height: 220px; }
+}
+
+/* ============================================================
+   2026-11 design pass: new transparent logo, new coach photo,
+   and improved legibility (size/weight only; font family later).
+   ============================================================ */
+
+/* --- Logo: transparent emblem instead of a white box --- */
+.brand-mark {
+  background: transparent;
+  padding: 2px;
+  border-color: transparent;
+}
+.brand-mark img {
+  object-fit: contain;
+  border-radius: 0;
+}
+.address-icon {
+  background: transparent;
+  border-color: transparent;
+}
+.address-icon img {
+  object-fit: contain;
+  padding: 3px;
+  border-radius: 0;
+}
+.hero-visual .visual-frame {
+  background:
+    radial-gradient(ellipse at 50% 46%, rgba(180, 30, 37, 0.18), transparent 62%),
+    transparent;
+  border-color: transparent;
+  padding: 18px;
+}
+.hero-logo {
+  width: min(100%, 390px);
+  max-height: 430px;
+  filter: drop-shadow(0 22px 46px rgba(0, 0, 0, 0.55));
+}
+
+/* --- Coach card caption: only the name, easier to read --- */
+.coach-card-footer {
+  align-self: stretch;
+  justify-content: flex-start;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+.coach-card-footer span {
+  font-weight: 700;
+}
+
+/* --- Legibility: body copy --- */
+.hero-lead {
+  color: #d8d2d0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.75;
+}
+.hero-note {
+  color: var(--color-text-soft);
+  font-size: 12px;
+  font-weight: 600;
+}
+.eyebrow {
+  color: #d2ccca;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+.section-aside {
+  color: #d2ccca;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.75;
+}
+.intro-strip-inner {
+  font-size: 11px;
+}
+.coach-content > p {
+  color: #d6d0ce;
+  font-size: 15px;
+  line-height: 1.8;
+}
+.coach-content .coach-small-note {
+  color: var(--color-text-soft);
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+.belt-label {
+  font-size: 11.5px;
+}
+.text-link {
+  font-size: 12px;
+}
+.button {
+  font-size: 12px;
+}
+.quote-caption {
+  font-size: 10px;
+}
+
+/* --- Achievements --- */
+.achievement-label {
+  font-size: 13px;
+  line-height: 1.5;
+}
+.achievement-year {
+  font-size: 10px;
+  letter-spacing: 0.11em;
+}
+
+/* --- Groups --- */
+.group-index {
+  font-size: 10px;
+}
+.group-card-copy p {
+  color: #e0dbd8;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.first-session-label {
+  font-size: 10.5px;
+}
+.first-session p {
+  color: #d6d0ce;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* --- Schedule --- */
+.address-label {
+  font-size: 10px;
+}
+.address-card strong {
+  font-size: 14px;
+}
+.address-detail {
+  font-size: 12px;
+}
+.address-card a {
+  font-size: 11.5px;
+}
+.schedule-card h3 {
+  font-size: 15px;
+}
+.schedule-card p {
+  color: #d2ccca;
+  font-size: 12px;
+}
+
+/* --- Prices --- */
+.price-index {
+  font-size: 10px;
+}
+.price-badge {
+  font-size: 9px;
+}
+.price-description {
+  color: #c4bebc;
+  font-size: 11.5px;
+}
+.price-options span {
+  color: #d2ccca;
+  font-size: 11px;
+}
+.price-link {
+  font-size: 12px;
+}
+
+/* --- Gallery --- */
+.gallery-label {
+  font-size: 10.5px;
+}
+
+/* --- Contacts --- */
+.contact-copy > p:not(.eyebrow) {
+  color: #d2ccca;
+  font-size: 14px;
+}
+.contact-link {
+  font-size: 14px;
+}
+.contact-note {
+  grid-column: 1 / -1;
+  margin: 12px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 10.5px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* --- Map & footer --- */
+.map-link {
+  font-size: 11.5px;
+}
+.location-map-heading p {
+  color: #d2ccca;
+  font-size: 12px;
+}
+.back-top {
+  font-size: 10px;
+}
+.footer-bottom {
+  font-size: 10px;
+}
+.map-attribution {
+  font-size: 9.5px;
+}
+
+/* --- Group cards: keep the arrow clickable above the text block --- */
+.group-card > a {
+  z-index: 3;
+}
+
+/* --- "Что взять с собой": make the label loud --- */
+.first-session-label {
+  color: var(--color-accent-bright);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.3;
+}
+
+/* --- Uniform can be bought in the gym: eye-catching callout --- */
+.gym-shop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+  margin-top: 12px;
+  padding: 20px 24px;
+  border: 1px solid rgba(180, 30, 37, 0.6);
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(180, 30, 37, 0.28), transparent 55%),
+    linear-gradient(90deg, rgba(139, 17, 22, 0.18), rgba(16, 16, 16, 0.55));
+}
+.gym-shop-label {
+  color: var(--color-accent-bright);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+.gym-shop strong {
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+.gym-shop-text {
+  color: var(--color-text-soft);
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+/* --- Schedule: two-hour ranges need a slightly smaller size --- */
+.schedule-card > strong {
+  font-size: 26px;
+  white-space: nowrap;
+}
+
+/* --- Mobile legibility --- */
+@media (max-width: 980px) {
+  .site-nav { font-size: 11px; }
+}
+.price-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+@media (max-width: 740px) {
+  .price-grid { grid-template-columns: minmax(0, 1fr); }
+  .price-card { min-width: 0; }
+  .hero-lead { font-size: 15px; }
+  .hero-note { font-size: 11.5px; }
+  .eyebrow { font-size: 11px; }
+  .section-aside { font-size: 13.5px; }
+  .section-heading-split { align-items: flex-start; }
+  .coach-content > p { font-size: 14px; }
+  .coach-card-footer { font-size: 10.5px; }
+  .schedule-card p { font-size: 11.5px; }
+  .contact-link { font-size: 13px; }
+  .gallery-label { font-size: 9.5px; }
+  .hero-bottom { font-size: 9px; }
+  .intro-strip-inner { font-size: 9.5px; }
+}
+@media (max-width: 390px) {
+  .eyebrow { font-size: 10px; }
+  .coach-card-footer { font-size: 9.5px; }
+  .gallery-label { font-size: 8.5px; }
+  .schedule-card p { font-size: 11px; }
+}
+@media (max-width: 360px) {
+  body { min-width: 0; }
+  .price-card h3 { font-size: 40px; }
+}
+
+/* --- Tablet: three price cards get too tight, stack them instead --- */
+@media (min-width: 741px) and (max-width: 980px) {
+  .price-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .price-card {
+    min-height: 0;
+    padding: 26px 28px;
+  }
+  .price-card h3 {
+    margin: 30px 0 20px;
+    font-size: clamp(38px, 5vw, 51px);
+  }
+  .price-badge {
+    top: 24px;
+    right: 26px;
+  }
+}
+
+/* --- Coach: belt line stays next to its swatch when it wraps --- */
+.belt-label {
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+.belt-label > span:last-child {
+  min-width: 0;
+}
+.belt-label .belt-swatch {
+  margin-top: 5px;
+  flex: 0 0 auto;
+}
+
+/* --- Regalia: brighter and larger so the titles are easy to read --- */
+.coach-content .coach-small-note {
+  margin-top: 20px;
+  padding-left: 14px;
+  border-left: 2px solid var(--color-accent);
+  color: #e6e1de;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.75;
+}
+.achievement-year {
+  color: #c9c3c1;
+  font-size: 10.5px;
+}
+@media (max-width: 740px) {
+  .coach-content .coach-small-note { font-size: 13px; }
+  .belt-label { letter-spacing: 0.1em; }
 }
 
