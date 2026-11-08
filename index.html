@@ -10,47 +10,89 @@
     <meta name="theme-color" content="#0a0a0a" />
     <meta
       name="description"
-      content="Academy of Grappling — академия грэпплинга в Ставрополе. Тренировки для взрослых и детей с тренером Залбеком Рустамовым. Расписание, цены и запись на занятия."
+      content="AG Stavropol — Academy of Grappling в Ставрополе. Грэпплинг для взрослых и детей, персональные занятия, подготовка к соревнованиям. Тренер — Залбек Рустамов."
     />
     <meta name="author" content="Залбек Рустамов" />
     <meta name="robots" content="index, follow" />
-    <title>AG Stavropol — грэпплинг в Ставрополе | Academy of Grappling</title>
+    <title>AG Stavropol — грэпплинг в Ставрополе | Залбек Рустамов</title>
     <link rel="canonical" href="https://agstavropol.ru/" />
 
     <!-- Структурированные данные: только подтверждённые сведения -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "SportsActivityLocation",
-        "name": "Academy of Grappling",
-        "alternateName": "AG Stavropol",
-        "url": "https://agstavropol.ru/",
-        "logo": "https://agstavropol.ru/images/logo-ag.png",
-        "image": "https://agstavropol.ru/images/og-preview.png",
-        "description": "Академия грэпплинга в Ставрополе. Тренировки для взрослых и детей с тренером Залбеком Рустамовым.",
-        "slogan": "Сила в контроле",
-        "telephone": "+7-909-494-62-78",
-        "knowsAbout": ["Grappling", "Грэпплинг"],
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "улица Ленина, 127",
-          "addressLocality": "Ставрополь",
-          "addressCountry": "RU"
-        }
+        "@graph": [
+          {
+            "@type": "SportsActivityLocation",
+            "@id": "https://agstavropol.ru/#club",
+            "name": "AG Stavropol",
+            "alternateName": ["Academy of Grappling", "Академия грэпплинга"],
+            "url": "https://agstavropol.ru/",
+            "logo": "https://agstavropol.ru/images/logo-ag.png",
+            "image": "https://agstavropol.ru/images/og-preview.png",
+            "description": "Академия грэпплинга в Ставрополе. Тренировки для взрослых и детей с тренером Залбеком Рустамовым.",
+            "slogan": "Сила в контроле",
+            "telephone": "+7-909-494-62-78",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "улица Ленина, 127",
+              "addressLocality": "Ставрополь",
+              "addressRegion": "Ставропольский край",
+              "addressCountry": "RU"
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Ставрополь"
+            },
+            "knowsAbout": ["Грэпплинг", "Grappling", "Спортивные единоборства"],
+            "sameAs": [
+              "https://yandex.ru/maps/org/akademiya_grepplinga/58213744202/",
+              "https://2gis.ru/stavropol/firm/70000001110914085"
+            ],
+            "employee": {
+              "@id": "https://agstavropol.ru/#coach"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://agstavropol.ru/#coach",
+            "name": "Залбек Рустамов",
+            "jobTitle": "Тренер по грэпплингу",
+            "worksFor": {
+              "@id": "https://agstavropol.ru/#club"
+            },
+            "sameAs": [
+              "https://t.me/thezalbek",
+              "https://vk.ru/thezalbek",
+              "https://max.ru/u/f9LHodD0cOJwK8L6pvQ-R5k2pOxUT7a8ePOVy6kpYx68fHSIpFvf_ASNHk4"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://agstavropol.ru/#website",
+            "url": "https://agstavropol.ru/",
+            "name": "AG Stavropol",
+            "alternateName": "Academy of Grappling",
+            "inLanguage": "ru-RU",
+            "publisher": {
+              "@id": "https://agstavropol.ru/#club"
+            }
+          }
+        ]
       }
     </script>
 
     <!-- Open Graph и Twitter: превью ссылки в Telegram, VK и мессенджерах -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Academy of Grappling" />
+    <meta property="og:site_name" content="AG Stavropol" />
     <meta property="og:locale" content="ru_RU" />
     <meta
       property="og:title"
-      content="AG Stavropol — грэпплинг в Ставрополе | Academy of Grappling"
+      content="AG Stavropol — грэпплинг в Ставрополе | Залбек Рустамов"
     />
     <meta
       property="og:description"
-      content="Academy of Grappling — академия грэпплинга в Ставрополе. Тренировки для взрослых и детей с тренером Залбеком Рустамовым. Расписание, цены и запись на занятия."
+      content="AG Stavropol — Academy of Grappling в Ставрополе. Грэпплинг для взрослых и детей, персональные занятия, подготовка к соревнованиям. Тренер — Залбек Рустамов."
     />
     <meta property="og:url" content="https://agstavropol.ru/" />
     <meta
@@ -61,16 +103,16 @@
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Academy of Grappling — сила в контроле"
+      content="AG Stavropol — Academy of Grappling, сила в контроле"
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="AG Stavropol — грэпплинг в Ставрополе | Academy of Grappling"
+      content="AG Stavropol — грэпплинг в Ставрополе | Залбек Рустамов"
     />
     <meta
       name="twitter:description"
-      content="Academy of Grappling — академия грэпплинга в Ставрополе. Тренировки для взрослых и детей с тренером Залбеком Рустамовым. Расписание, цены и запись на занятия."
+      content="AG Stavropol — Academy of Grappling в Ставрополе. Грэпплинг для взрослых и детей, персональные занятия, подготовка к соревнованиям. Тренер — Залбек Рустамов."
     />
     <meta
       name="twitter:image"
@@ -78,11 +120,18 @@
     />
 
     <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="images/favicon-32.png"
+      href="favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon-16x16.png"
     />
     <link
       rel="icon"
@@ -93,7 +142,7 @@
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="images/apple-touch-icon.png"
+      href="apple-touch-icon.png"
     />
     <link
       rel="preload"
@@ -124,7 +173,7 @@
           <span class="brand-mark"
             ><img
               src="images/logo-ag.png"
-              alt="Логотип Academy of Grappling"
+              alt="Логотип AG Stavropol — Academy of Grappling"
               width="512"
               height="512"
               decoding="async"
@@ -162,8 +211,8 @@
             </p>
             <h1 id="hero-title">СИЛА<br /><span>В КОНТРОЛЕ</span></h1>
             <p class="hero-lead">
-              Грэпплинг для взрослых и детей. Техника, дисциплина и уверенность
-              — шаг за шагом.
+              AG Stavropol — академия грэпплинга для взрослых и детей в
+              Ставрополе. Техника, дисциплина и уверенность — шаг за шагом.
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="#contacts"
@@ -184,12 +233,12 @@
               борьбы
             </p>
           </div>
-          <div class="hero-visual reveal" aria-label="Academy of Grappling">
+          <div class="hero-visual reveal">
             <div class="visual-frame">
               <img
                 class="hero-logo"
                 src="images/logo-ag.png"
-                alt="Academy of Grappling"
+                alt="AG Stavropol — Academy of Grappling"
                 width="512"
                 height="512"
                 decoding="async"
@@ -206,7 +255,7 @@
 
       <div class="intro-strip">
         <div class="container intro-strip-inner">
-          <span>ACADEMY OF GRAPPLING</span><i></i><span>КОМАНДА ЛИДЕРОВ</span
+          <span>AG STAVROPOL — ACADEMY OF GRAPPLING</span><i></i><span>КОМАНДА ЛИДЕРОВ</span
           ><i></i><span>ПУТЬ К ТРИУМФУ</span>
         </div>
       </div>
@@ -844,8 +893,8 @@
       </div>
       <div class="container footer-bottom">
         <span
-          >© <span id="current-year">2026</span> Academy of Grappling ·
-          Ставрополь</span
+          >© <span id="current-year">2026</span> AG Stavropol · Academy of
+          Grappling · Ставрополь</span
         ><span>Грэпплинг · Тренировки для взрослых и детей</span>
       </div>
     </footer>
